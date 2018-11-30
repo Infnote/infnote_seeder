@@ -1,0 +1,37 @@
+Language requirement  Python 3.6 or above
+
+DNS seeding for infnote
+
+Infnote-seeder
+==============
+
+Infnote-seeder is a crawler for the Infnote network, which exposes a list
+of reliable nodes via a built-in DNS server.
+
+Features:
+* regularly revisits known nodes to check their availability
+* bans nodes after enough failures, or bad behaviour
+
+
+REQUIREMENTS
+------------
+
+$ pip install dnslib gevent socketserver pylru
+
+$ sudo nohup python infnote_dns.py &
+
+$ sudo nohup python run_crawler_regularly.py &
+
+
+RUNNING AS NON-ROOT
+-------------------
+
+Typically, you'll need root privileges to listen to port 53 (name service).
+
+One solution is using an iptables rule (Linux only) to redirect it to
+a non-privileged port:
+
+$ iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353
+
+If properly configured, this will allow you to run dnsseed in userspace, using
+the -p 5353 option.
