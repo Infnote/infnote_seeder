@@ -42,7 +42,6 @@ def query(qname):
                for line in fdb.readlines()]
         logger.info('dns ')
         logger.info(dns)
-        # logger.info('dns ', dns)
     ret = []
     for t in dns:
         if (t[0] == qname):
@@ -203,7 +202,7 @@ def load_config(filename):
 
 
 if __name__ == '__main__':
-    # read infnote.ini
+    # read infnote_dns.ini
     config_file = os.path.basename(__file__).split('.')[0] + '.ini'
     config_dict = load_config(config_file)
     ip, port = config_dict['ip'], int(config_dict['port'])
@@ -211,5 +210,3 @@ if __name__ == '__main__':
     lru_size = int(config_dict['lru_size'])
     db = config_dict['db']
     DNSServer.start()
-    # test command
-    # dig infnote.com @127.0.0.1 -p 9953

@@ -4,6 +4,7 @@ import json
 import logging
 import time
 import os
+import sys
 
 
 logger = logging.getLogger('crawler')
@@ -42,11 +43,11 @@ message_info = {
    }
 }
 
-full_node1_ip = '47.74.45.239'
-full_node1_port = '32767'
+# full_node1_ip = '47.74.45.239'
+# full_node1_port = '32767'
 # True means was crawled
 # ['47.74.45.239', '47.74.47.117']
-ips = {'47.74.45.239': False}
+ips = {}
 ports = ['32767']
 f = open('infnote_db_new.csv', 'w')
 f.write('primarysever.infnote.com,' +
@@ -164,4 +165,8 @@ def main():
 
 
 if __name__ == "__main__":
+    if len(sys.argv) >= 2:
+        ips[sys.argv[1]] = False
+    else:
+        ips = {'47.74.45.239': False}
     main()
