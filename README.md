@@ -16,7 +16,7 @@ Features:
 REQUIREMENTS
 ------------
 
-$ pip install dnslib gevent socketserver pylru
+$ pip3 install dnslib gevent socketserver pylru asyncio
 
 $ sudo nohup python infnote_dns.py &
 
