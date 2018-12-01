@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import asyncio
 import websockets
 import json
@@ -69,6 +68,8 @@ async def request_info(ip='47.74.45.239', port='32767'):
             await websocket.send(json.JSONEncoder().encode(message_info))
             resp_inf = await websocket.recv()
             logger.info(resp_inf)
+            if(resp_inf is None):
+                good = False
     except OSError as error:
         logger.info(ip+' is not good')
         good = False
