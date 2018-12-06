@@ -17,6 +17,8 @@ REQUIREMENTS
 ------------
 
 $ pip3 install dnslib gevent socketserver pylru asyncio
+$ pip3 install json logging socket configparser websockets
+
 
 USAGE
 -----
@@ -37,7 +39,7 @@ seed.infnote.com	nameserver = ns.infnote.com.
 
 ns.infnote.com	internet address = 47.74.45.239
 
-and you have a full node ip address 47.74.45.239
+and you have a full node IP address 47.74.45.239
 
 $ sudo nohup python infnote_dns.py &
 
