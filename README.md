@@ -18,9 +18,15 @@ REQUIREMENTS
 
 $ pip3 install dnslib gevent socketserver pylru asyncio
 
+USAGE
+-----
+
 $ sudo nohup python infnote_dns.py &
 
-$ sudo nohup python run_crawler_regularly.py &
+$ sudo nohup python run_crawler_regularly.py 1.2.3.4 seed.infnote.com 60 &
+# 1.2.3.4 is a fule node IP
+# seed.infnote.com is the seed url
+# 60 means the interval of crawler is 60 seconds
 
 
 RUNNING AS NON-ROOT
