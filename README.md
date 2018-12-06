@@ -39,8 +39,11 @@ $ sudo nohup python infnote_dns.py &
 $ sudo nohup python run_crawler_regularly.py 47.74.45.239 seed.infnote.com 60 &
 
 parameters:
+
 47.74.45.239 is a fule node IP
+
 seed.infnote.com is the seed url
+
 60 means that the interval of crawler is 60 seconds
 
 
