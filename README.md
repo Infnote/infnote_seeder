@@ -26,10 +26,15 @@ need an authorative NS record in infnote.com's domain record, pointing
 to for example ns.infnote.com:
 
 $nslookup -type=ns seed.infnote.com freedns1.registrar-servers.com
+
 Server:		freedns1.registrar-servers.com
+
 Address:	45.58.122.82#53
+
 Authoritative answers can be found from:
+
 seed.infnote.com	nameserver = ns.infnote.com.
+
 ns.infnote.com	internet address = 47.74.45.239
 
 and you have a full node ip address 47.74.45.239
