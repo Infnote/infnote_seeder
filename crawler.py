@@ -57,7 +57,9 @@ nodes_file_name = 'nodes.csv'
 nodes_file = open(nodes_file_name, 'w')
 nodes_file.write('ip,good,last_check_time\n')
 nodes_file.flush()
-
+seed = 'seed.infnote.com'
+delimiter = ','
+iterm = seed + delimiter
 
 def get_ws_url(ip='47.74.45.239', port='32767'):
     return 'ws://' + ip + ':' + port
@@ -81,7 +83,7 @@ async def request_info(ip='47.74.45.239', port='32767'):
         ips[ip] = True
         if(good):
             logger.info(ip+' is good')
-            f.write('seed.infnote.com,' + ip + '\n')
+            f.write(iterm + ip + '\n')
             f.flush()
             nodes_file.write(ip + ',yes,' +
                              time.strftime(
@@ -133,7 +135,7 @@ async def request_peers(ip='47.74.45.239', port='32767'):
         if(good):
             ips[ip] = True
             logger.info(ip+' is good')
-            f.write('seed.infnote.com,' + ip + '\n')
+            f.write(iterm + ip + '\n')
             f.flush()
             nodes_file.write(ip + ',yes,' +
                              time.strftime(
@@ -173,8 +175,16 @@ def main():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 2:
+    """
+    sys.argv[1] is a full node IP
+    sys.argv[2] is the seed url
+    """
+    if len(sys.argv) == 2:
         ips[sys.argv[1]] = False
+    elif len(sys.argv) == 3:
+        ips[sys.argv[1]] = False
+        seed = sys.argv[2]
+        iterm = seed + delimiter
     else:
         ips = {'47.74.45.239': False}
     main()
