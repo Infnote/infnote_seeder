@@ -42,9 +42,9 @@ ns.infnote.com	internet address = 47.74.45.239
 
 and you have a full node IP address 47.74.45.239
 
-$ sudo nohup python infnote_dns.py &
+$ sudo nohup python3 infnote_dns.py &
 
-$ sudo nohup python run_crawler_regularly.py 47.74.45.239 seed.infnote.com 60 &
+$ sudo nohup python3 run_crawler_regularly.py 47.74.45.239 seed.infnote.com 60 &
 
 parameters:
 
