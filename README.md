@@ -1,4 +1,4 @@
-Language requirement  Python 3.6 or above
+Language requirement Python 3.6 or above
 
 DNS seeding for infnote
 
@@ -21,14 +21,27 @@ $ pip3 install dnslib gevent socketserver pylru asyncio
 USAGE
 -----
 
+Assuming you want to run a dns seed on seed.infnote.com, you will
+need an authorative NS record in infnote.com's domain record, pointing
+to for example ns.infnote.com:
+
+$nslookup -type=ns seed.infnote.com freedns1.registrar-servers.com
+Server:		freedns1.registrar-servers.com
+Address:	45.58.122.82#53
+Authoritative answers can be found from:
+seed.infnote.com	nameserver = ns.infnote.com.
+ns.infnote.com	internet address = 47.74.45.239
+
+and you have a full node ip address 1.2.3.4
+
 $ sudo nohup python infnote_dns.py &
 
 $ sudo nohup python run_crawler_regularly.py 1.2.3.4 seed.infnote.com 60 &
-'''
+parameters:
 1.2.3.4 is a fule node IP
 seed.infnote.com is the seed url
-60 means the interval of crawler is 60 seconds
-'''
+60 means that the interval of crawler is 60 seconds
+
 
 RUNNING AS NON-ROOT
 -------------------
