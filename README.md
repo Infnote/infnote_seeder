@@ -17,6 +17,7 @@ REQUIREMENTS
 ------------
 
 $ pip3 install dnslib gevent socketserver pylru asyncio
+
 $ pip3 install json logging socket configparser websockets
 
 
